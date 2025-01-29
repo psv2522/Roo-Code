@@ -7,6 +7,7 @@ import ApiOptions from "./ApiOptions"
 import ApiConfigManager from "./ApiConfigManager"
 import { Dropdown } from "vscrui"
 import type { DropdownOption } from "vscrui"
+import { OPENROUTER_MODEL_PICKER_Z_INDEX } from "./OpenRouterModelPicker"
 
 type SettingsViewProps = {
 	onDone: () => void
@@ -452,7 +453,11 @@ const SettingsView = ({ onDone }: SettingsViewProps) => {
 								onChange={(value: unknown) => {
 									setBrowserViewportSize((value as DropdownOption).value)
 								}}
-								style={{ width: "100%" }}
+								style={{
+									width: "100%",
+									position: "relative",
+									zIndex: OPENROUTER_MODEL_PICKER_Z_INDEX - 2,
+								}}
 								options={[
 									{ value: "1280x800", label: "Large Desktop (1280x800)" },
 									{ value: "900x600", label: "Small Desktop (900x600)" },

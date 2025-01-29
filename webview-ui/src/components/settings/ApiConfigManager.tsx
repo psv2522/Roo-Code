@@ -3,6 +3,7 @@ import { memo, useEffect, useRef, useState } from "react"
 import { ApiConfigMeta } from "../../../../src/shared/ExtensionMessage"
 import { Dropdown } from "vscrui"
 import type { DropdownOption } from "vscrui"
+import { OPENROUTER_MODEL_PICKER_Z_INDEX } from "./OpenRouterModelPicker"
 
 interface ApiConfigManagerProps {
 	currentApiConfigName?: string
@@ -143,6 +144,8 @@ const ApiConfigManager = ({
 								}}
 								style={{
 									minWidth: 130,
+									position: "relative",
+									zIndex: OPENROUTER_MODEL_PICKER_Z_INDEX + 2,
 								}}
 								role="combobox"
 								options={listApiConfigMeta.map((config) => ({
